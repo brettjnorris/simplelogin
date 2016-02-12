@@ -3,6 +3,7 @@
 
 <% if current_user %>
   <p>Signed in as <%= current_user.try(:email) %></p>
+  <p>Phone: <%= current_user.formatted_phone %></p>
   <p>
     <%= link_to 'Edit Account', edit_user_registration_path %>
     <%= button_to 'Sign Out', destroy_user_session_path, method: :delete  %>

@@ -76,4 +76,22 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe "formatted_phone" do
+    context "with a valid phone number" do
+      let(:params) do
+        {
+          phone: "5555551234",
+          email: "user@example.com",
+          password: "test1234"
+        }
+      end
+
+      let(:user) { User.new(params) }
+
+      it "returns a formatted phone number" do
+        expect(user.formatted_phone).to eq("555-555-1234")
+      end
+    end
+  end
 end
