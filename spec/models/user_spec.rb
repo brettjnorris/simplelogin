@@ -6,7 +6,8 @@ RSpec.describe User, type: :model do
       let(:params) do
         {
           phone: "1234567890",
-          email: "user@example.com"
+          email: "user@example.com",
+          password: "test1234"
         }
       end
 
@@ -19,7 +20,8 @@ RSpec.describe User, type: :model do
       let(:params) do
         {
           phone: "1234567",
-          email: "user@example.com"
+          email: "user@example.com",
+          password: "test1234"
         }
       end
 
@@ -42,7 +44,8 @@ RSpec.describe User, type: :model do
       let(:params) do
         {
           phone: "1234567890",
-          email: "user@example.com"
+          email: "user@example.com",
+          password: "test1234"
         }
       end
 
@@ -55,7 +58,8 @@ RSpec.describe User, type: :model do
       let(:params) do
         {
           phone: "1234567890",
-          email: nil
+          email: nil,
+          password: "test1234"
         }
       end
 
