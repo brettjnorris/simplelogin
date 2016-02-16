@@ -55,4 +55,19 @@ RSpec.feature "UserEdits", type: :feature do
 
     expect(page).to have_text("Signed in successfully.")
   end
+
+  scenario "User does not enter a password confirmation" do
+    login_as user
+    visit "/"
+
+    click_link 'Edit Account'
+
+    fill_in 'Password', with: 'newpassword'
+    fill_in 'Current password', with: 'test1234'
+
+    click_button 'Update'
+
+    expect(page).to_not have_text("Your account has been updated successfully.")
+    expect(page).to have_text("Password confirmation doesn't match")
+  end
 end
