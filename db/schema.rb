@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160212031716) do
+ActiveRecord::Schema.define(version: 20160222233824) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fields", force: :cascade do |t|
+    t.string   "key"
+    t.string   "value"
+    t.integer  "ownable_id"
+    t.string   "ownable_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "fields", ["ownable_type", "ownable_id"], name: "index_fields_on_ownable_type_and_ownable_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
